@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    data = saham.getAllStock(saham_db.jii70)
+    data = saham.getAllStock(saham_db.jii70, '.JK')
     return render_template('index.html', data=data)
 
 

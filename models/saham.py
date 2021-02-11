@@ -26,7 +26,8 @@ def rupiah_format(angka):
 	return rupiah
 
 
-def getStock(code):
+def getStock(code, country_id):
+	code = code + country_id
 	saham = Saham('', 0, 0, 0, 0, 0, 0, 0)
 	my_share = share.Share(code)
 	symbol_data = None
@@ -66,11 +67,11 @@ def getStock(code):
 	return saham
 
 
-def getAllStock(stock_list):
+def getAllStock(stock_list, country_id):
 	data = []
 	stocks_codes = stock_list
 
 	for code in stocks_codes:
-		data.append(getStock(code))
+		data.append(getStock(code, country_id))
 
 	return data
