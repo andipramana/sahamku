@@ -17,7 +17,7 @@ def rupiah_format(angka):
 
 def getStock(code, country_id):
     code = code
-    saham = Saham('', 0, 0, 0, 0, 0, 0, 0)
+    saham = Saham('', '', '', '', '', '', '', 0)
     my_share = share.Share(code + country_id)
 
     try:
