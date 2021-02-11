@@ -17,7 +17,7 @@ def rupiah_format(angka):
 
 def getStock(code, country_id):
     code = code
-    saham = Saham('', '', '', '', '', '', '', 0)
+    saham = Saham('', '', '', '', '', '', 0, 0)
     my_share = share.Share(code + country_id)
 
     try:
@@ -28,19 +28,18 @@ def getStock(code, country_id):
 
         try:
             saham.code = code
-            saham.change = round((symbol_data['close'][1] - symbol_data['close'][0]) / symbol_data['close'][0] * 100, 2)
-            print(saham.change)
             saham.previous_close = rupiah_format(symbol_data['close'][0])
-            print(saham.previous_close)
             saham.open_price = rupiah_format(symbol_data['open'][1])
-            print(saham.open_price)
             saham.high = rupiah_format(symbol_data['high'][1])
             saham.low = rupiah_format(symbol_data['low'][1])
             saham.close = rupiah_format(symbol_data['close'][1])
             saham.volume = symbol_data['volume'][1]
+            saham.change = round((symbol_data['close'][1] - symbol_data['close'][0]) / symbol_data['close'][0] * 100, 2)
+
+            print(saham.__str__())
 
         except:
-            print("Stock " + code + "Error")
+            print("Stock " + code + " Error")
 
     except YahooFinanceError as e:
         saham.code = code
