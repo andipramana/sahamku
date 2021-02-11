@@ -1,0 +1,40 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %}
+{% block title %}List Saham{% endblock %}
+{% block content %}
+<table class="table">
+  <tr>
+    <td colspan="3">
+      <h1 style="text-align: center">List Saham</h1>
+    </td>
+  </tr>
+  <tr>
+    <th class="row">Code</th>
+    <th class="row">Last Price</th>
+    <th class="row">Change</th>
+  </tr>
+
+  {% for i in data %}
+  <tr>
+    <td class="row">{{i.code}}</td>
+    <td class="row">{{i.close}}</td>
+    <td class="row">{{i.change}}</td>
+  </tr>
+
+  {% endfor %}
+
+  <tr>
+    <td><br /></td>
+  </tr>
+  <tr>
+    <td><br /></td>
+  </tr>
+
+  <tr>
+    <td colspan="3">
+      <a href="/kalkulator" class="btn btn--stripe btn--radius">Kalkulator</a>
+    </td>
+  </tr>
+</table>
+
+{% endblock %}

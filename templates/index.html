@@ -1,42 +1,22 @@
-{% extends 'base.html' %}
 <!-- prettier-ignore -->
-{% block header %}
-
-{% endblock header %}
-{% block title %}Home{% endblock title %}
-
-<!-- prettier-ignore -->
-{% block page_title %}Home{% endblock page_title %}
-
-<!-- prettier-ignore -->
+{% extends "base.html" %}
+{% block title %}Aplikasi Kalkulator Saham{% endblock%}
+{% block title_h1 %}Home{% endblock %}
 {% block content %}
-<table>
-  <tr>
-    <td>Code</td>
-    <td>Previous Close</td>
-    <td>Open</td>
-    <td>High</td>
-    <td>Low</td>
-    <td>Close</td>
-    <td>Change</td>
-    <td>Volume</td>
-  </tr>
-  {% for i in data %}
-  <tr>
-    <td>{{i.code}}</td>
-    <td>{{i.previous_close}}</td>
-    <td>{{i.open_price}}</td>
-    <td>{{i.high}}</td>
-    <td>{{i.low}}</td>
-    <td>{{i.close}}</td>
-    <td>{{i.change}}</td>
-    <td>{{i.volume}}</td>
-  </tr>
+<div>
+  <div style="text-align: center">
+    <h3>Selamat datang di aplikasi kalkulator saham</h3>
+  </div>
 
-  {% endfor %}
-</table>
+  <a href="/kalkulator" class="btn btn--stripe">Beli Saham</a>
+  <a href="/kalkulator_" class="btn btn--stripe">Jual Saham</a>
+  <a href="/list_saham" class="btn btn--stripe">List Saham</a>
+  <a
+    href="https://github.com/andipramana/kalkulator-saham"
+    target="blank"
+    class="btn btn--stripe btn--radius"
+    >Source Code</a
+  >
+</div>
 
-<!-- prettier-ignore -->
-{%endblock content %}
-
-{% block footer %} {% endblock footer %}
+{% endblock %}

@@ -47,3 +47,7 @@ jii70 = ['AALI', 'ACES', 'ADHI', 'ADRO', 'AKRA', 'ANTM', 'BIRD', 'BMTR', 'BRIS',
          'MYOR', 'PGAS', 'POWR', 'PTBA', 'PTPP', 'PWON', 'RALS', 'ROTI', 'SCMA', 'SIDO',
          'SILO', 'SIMP', 'SMBR', 'SMGR', 'SMRA', 'SMSM', 'SSIA', 'TINS', 'TKIM', 'TLKM',
          'TPIA', 'UCID', 'ULTJ', 'UNTR', 'UNVR', 'WEGE', 'WIKA', 'WOOD', 'WSBP', 'WTON']
+
+top10 = ['BBCA', 'BBRI', 'TLKM', 'BMRI', 'UNVR', 'ASII', 'HMSP', 'TPIA', 'BBNI', 'ICBP']
+
+example = ['BBCA', 'TLKM', 'UNVR', 'HMSP', 'ICBP']

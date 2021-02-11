@@ -1,0 +1,107 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %}
+{% block title %}Kalkulator Saham{% endblock %}
+{%block title_h1 %}Kalkulator Saham{% endblock %}
+{% block content %}
+<table>
+  <tr>
+    <td colspan="2">
+      <h1 style="text-align: center" id="labelKalkulator">Beli Saham</h1>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <button id="beli" class="btn btn--stripe" onclick="beli()">Beli</button>
+    </td>
+    <td align="center">
+      <button id="jual" class="btn btn--stripe" onclick="jual()">Jual</button>
+    </td>
+  </tr>
+
+  <tr style="display: contents" id="rowModal">
+    <td>
+      <label for="modal">Masukan modal</label>
+    </td>
+    <td>
+      <input
+        type="number"
+        oninput="calculate()"
+        name="modal"
+        id="modal"
+        min="5000"
+      />
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <label for="hargaSaham">Masukan harga saham</label>
+    </td>
+    <td>
+      <input
+        type="number"
+        oninput="calculate()"
+        name="hargaSaham"
+        id="hargaSaham"
+        min="50"
+      />
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <label for="jumlahLot" id="lotLabel">Jumlah lot bisa dibeli</label>
+    </td>
+    <td>
+      <input
+        type="number"
+        name="jumlahLot"
+        oninput="calculate()"
+        id="jumlahLot"
+        readonly
+      />
+    </td>
+  </tr>
+
+  <tr style="display: contents" id="rowBiaya">
+    <td>
+      <label for="biaya">Biaya</label>
+    </td>
+    <td>
+      <input type="number" name="biaya" id="biaya" readonly />
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <label for="pajak">Pajak</label>
+    </td>
+    <td>
+      <input type="number" name="pajak" id="pajak" readonly />
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <label for="totalBiaya" id="totalLabel">Total biaya</label>
+    </td>
+    <td>
+      <input type="number" name="totalBiaya" id="totalBiaya" readonly />
+    </td>
+  </tr>
+
+  <tr>
+    <td><br /></td>
+  </tr>
+  <tr>
+    <td><br /></td>
+  </tr>
+
+  <tr>
+    <td colspan="2">
+      <a href="/list_saham" class="btn btn--stripe btn--radius">List Saham</a>
+    </td>
+  </tr>
+</table>
+
+{% endblock %}

@@ -16,9 +16,9 @@ def rupiah_format(angka):
 
 
 def getStock(code, country_id):
-    code = code + country_id
+    code = code
     saham = Saham('', 0, 0, 0, 0, 0, 0, 0)
-    my_share = share.Share(code)
+    my_share = share.Share(code + country_id)
 
     try:
         symbol_data = my_share.get_historical(share.PERIOD_TYPE_DAY, 1,
