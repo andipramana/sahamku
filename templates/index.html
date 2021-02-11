@@ -10,10 +10,33 @@
 
 <!-- prettier-ignore -->
 {% block content %}
-<h4>Lorem</h4>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas at dolorum
-  neque vel possimus mollitia omnis, odio quo, suscipit inventore iste ducimus
-  consequuntur vero illum temporibus alias officia dolores deleniti!
-</p>
-{%endblock content %} {% block footer %} {% endblock footer %}
+<table>
+  <tr>
+    <td>Code</td>
+    <td>Previous Close</td>
+    <td>Open</td>
+    <td>High</td>
+    <td>Low</td>
+    <td>Close</td>
+    <td>Change</td>
+    <td>Volume</td>
+  </tr>
+  {% for i in data %}
+  <tr>
+    <td>{{i.code}}</td>
+    <td>{{i.previous_close}}</td>
+    <td>{{i.open_price}}</td>
+    <td>{{i.high}}</td>
+    <td>{{i.low}}</td>
+    <td>{{i.close}}</td>
+    <td>{{i.change}}</td>
+    <td>{{i.volume}}</td>
+  </tr>
+
+  {% endfor %}
+</table>
+
+<!-- prettier-ignore -->
+{%endblock content %}
+
+{% block footer %} {% endblock footer %}
