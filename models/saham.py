@@ -10,7 +10,7 @@ class Saham:
         self.change = change
         self.volume = volume
 
-    def __str__(self) -> str:
-        return 'code : ' + self.code + '\nprevious_close : ' + self.previous_close \
-			   + '\nopen_price : ' + self.open_price + '\nhigh : ' + self.high + '\nlow : ' + self.low\
-			   + '\nclose : ' + self.close
+    def __str__(self):
+        return f'code : {self.code} \nprevious_close : {self.previous_close} \nopen_price : {self.open_price} ' \
+               f'\nhigh : {self.high} \nlow : {self.low} \nclose : {self.close} \nchange : {self.change} ' \
+               f'\nvolume : {self.volume}'

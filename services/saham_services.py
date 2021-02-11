@@ -9,7 +9,7 @@ def rupiah_format(angka):
     with_prefix = True
     desimal = 0
     locale.setlocale(locale.LC_NUMERIC, 'IND')
-    rupiah = locale.format("%.*f", (desimal, angka), True)
+    rupiah = locale.format_string("%.*f", (desimal, angka), True)
     if with_prefix:
         return "Rp. {}".format(rupiah)
     return rupiah
@@ -28,11 +28,11 @@ def getStock(code, country_id):
 
         try:
             saham.code = code
-            saham.previous_close = rupiah_format(symbol_data['close'][0])
-            saham.open_price = rupiah_format(symbol_data['open'][1])
-            saham.high = rupiah_format(symbol_data['high'][1])
-            saham.low = rupiah_format(symbol_data['low'][1])
-            saham.close = rupiah_format(symbol_data['close'][1])
+            saham.previous_close = symbol_data['close'][0]
+            saham.open_price = symbol_data['open'][1]
+            saham.high = symbol_data['high'][1]
+            saham.low = symbol_data['low'][1]
+            saham.close = symbol_data['close'][1]
             saham.volume = symbol_data['volume'][1]
             saham.change = round((symbol_data['close'][1] - symbol_data['close'][0]) / symbol_data['close'][0] * 100, 2)
 
