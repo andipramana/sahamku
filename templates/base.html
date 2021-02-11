@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
+    <link rel="icon" href={{ url_for('static', filename='favicon.png') }}
+    type="image/x-icon" />
+    <!-- prettier-ignore -->
+    {% block header %}
+    {% endblock header %}
+    <title>{% block title %} {% endblock title %}</title>
+  </head>
+  <body>
+    <!-- prettier-ignore -->
+    <h2>{% block page_title %} {% endblock page_title %}</h2>
+    <!-- prettier-ignore -->
+    {% block content %}
+
+    {%endblock content %}
+
+    {% block footer %}
+    {% endblock footer %}
+  </body>
+</html>
