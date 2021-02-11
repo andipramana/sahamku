@@ -1,5 +1,7 @@
 from flask import Flask, render_template
-from models import saham_db, saham
+from models import saham
+from sources import saham_db
+
 app = Flask(__name__)
 
 
