@@ -29,8 +29,11 @@ def getStock(code, country_id):
         try:
             saham.code = code
             saham.change = round((symbol_data['close'][1] - symbol_data['close'][0]) / symbol_data['close'][0] * 100, 2)
+            print(saham.change)
             saham.previous_close = rupiah_format(symbol_data['close'][0])
+            print(saham.previous_close)
             saham.open_price = rupiah_format(symbol_data['open'][1])
+            print(saham.open_price)
             saham.high = rupiah_format(symbol_data['high'][1])
             saham.low = rupiah_format(symbol_data['low'][1])
             saham.close = rupiah_format(symbol_data['close'][1])
