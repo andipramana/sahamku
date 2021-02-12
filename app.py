@@ -23,7 +23,7 @@ def kalkulator_():
 @app.route("/list_saham")
 def list_saham():
     data = saham_services.getAllStock(saham_db.example, '.JK')
-    return render_template(list_saham.__name__ + ".html", data=data)
+    return render_template(list_saham.__name__ + ".html", data=data, data_index=len(data))
 
 
 if __name__ == '__main__':

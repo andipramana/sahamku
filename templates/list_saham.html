@@ -1,7 +1,65 @@
 <!-- prettier-ignore -->
 {% extends "base.html" %}
+{% block header %}
+<script src={{ url_for('static', filename='js/saham.js') }}></script>
+<link rel="stylesheet" href={{ url_for('static', filename='css/modal.css') }}>
+{% endblock %}
 {% block title %}List Saham{% endblock %}
 {% block content %}
+<div id="modal-container">
+  <div class="modal-background">
+    <div class="modal">
+      <table class="modal-table" style="color: black;">
+        <tr>
+          <td>Code</td>
+          <td>:</td>
+          <td class="right stock-code"></td>
+        </tr>
+        <tr>
+          <td>Previous Close</td>
+          <td>:</td>
+          <td class="right stock-prev-close"></td>
+        </tr>
+        <tr>
+          <td>Open</td>
+          <td>:</td>
+          <td class="right stock-open"></td>
+        </tr>
+        <tr>
+          <td>High</td>
+          <td>:</td>
+          <td class="right stock-high"></td>
+        </tr>
+        <tr>
+          <td>Low</td>
+          <td>:</td>
+          <td class="right stock-low"></td>
+        </tr>
+        <tr>
+          <td>Close</td>
+          <td>:</td>
+          <td class="right stock-close"></td>
+        </tr>
+        <tr>
+          <td>Change</td>
+          <td>:</td>
+          <td class="right stock-change"></td>
+        </tr>
+        <tr>
+          <td>Volume</td>
+          <td>:</td>
+          <td class="right stock-volume"></td>
+        </tr>
+      </table>
+     
+      <svg class="modal-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none">
+								<rect x="0" y="0" fill="none" width="226" height="162" rx="3" ry="3"></rect>
+							</svg>
+    </div>
+  </div>
+</div>
+
+
 <table class="table">
   <tr>
     <td colspan="3">
@@ -14,11 +72,15 @@
     <th class="row">Change</th>
   </tr>
 
-  {% for i in data %}
+  {% for i in range(data_index) %}
+  <script>
+    list_saham.push(getData('{{data[i]|tojson}}'));
+  </script>
+
   <tr>
-    <td class="row">{{i.code}}</td>
-    <td class="row right">{{i.close}}</td>
-    <td class="row right">{{i.change}}</td>
+    <td class="row-w button c-pointer" id="one" key={{i}}>{{data[i].code}}</td>
+    <td class="row-w right">{{data[i].close}}</td>
+    <td class="row-w right">{{data[i].change}}</td>
   </tr>
 
   {% endfor %}
@@ -37,4 +99,10 @@
   </tr>
 </table>
 
+{% block footer %}
+<script src={{ url_for('static', filename='js/modal.js') }}></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
+  integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" 
+  crossorigin="anonymous"></script>
+{% endblock %}
 {% endblock %}

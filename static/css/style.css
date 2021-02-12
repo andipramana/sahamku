@@ -61,11 +61,20 @@ body {
 }
 
 .right {
-  text-align: right;
+  text-align: right !important;
 }
 
-.row {
+.left {
+  text-align: left;
+}
+
+.row-w {
   border-bottom: 1px solid white;
+  padding: 5px;
+}
+
+.row-b {
+  border-bottom: 1px solid black;
   padding: 5px;
 }
 

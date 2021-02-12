@@ -24,8 +24,6 @@ def getStock(code, country_id):
         symbol_data = my_share.get_historical(share.PERIOD_TYPE_DAY, 1,
                                               share.FREQUENCY_TYPE_DAY, 1)
 
-        print(code)
-
         try:
             saham.code = code
             saham.previous_close = symbol_data['close'][0]
@@ -36,10 +34,10 @@ def getStock(code, country_id):
             saham.volume = symbol_data['volume'][1]
             saham.change = round((symbol_data['close'][1] - symbol_data['close'][0]) / symbol_data['close'][0] * 100, 2)
 
-            print(saham.__str__())
+            print(saham.__dict__)
 
-        except:
-            print("Stock " + code + " Error")
+        except Exception as e:
+            print(e)
 
     except YahooFinanceError as e:
         saham.code = code
@@ -54,7 +52,7 @@ def getStock(code, country_id):
         print(e.message)
         sys.exit(1)
 
-    return saham
+    return saham.__dict__
 
 
 def getAllStock(stock_list, country_id):
