@@ -62,14 +62,15 @@
 
 <table class="table">
   <tr>
-    <td colspan="3">
+    <td colspan="4">
       <h1 style="text-align: center">List Saham</h1>
     </td>
   </tr>
   <tr>
-    <th class="row">Code</th>
-    <th class="row">Last Price</th>
-    <th class="row">Change</th>
+    <th class="row-w">Code</th>
+    <th class="row-w">Last Price</th>
+    <th class="row-w">Change</th>
+    <th class="row-w">Volume</th>
   </tr>
 
   {% for i in range(data_index) %}
@@ -81,6 +82,7 @@
     <td class="row-w button c-pointer" id="one" key={{i}}>{{data[i].code}}</td>
     <td class="row-w right">{{data[i].close}}</td>
     <td class="row-w right">{{data[i].change}}</td>
+    <td class="row-w right">{{data[i].volume}}</td>
   </tr>
 
   {% endfor %}
@@ -93,7 +95,7 @@
   </tr>
 
   <tr>
-    <td colspan="3">
+    <td colspan="4">
       <a href="/kalkulator" class="btn btn--stripe btn--radius">Kalkulator</a>
     </td>
   </tr>
