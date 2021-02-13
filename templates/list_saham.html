@@ -78,8 +78,8 @@
     list_saham.push(getData('{{data[i]|tojson}}'));
   </script>
 
-  <tr>
-    <td class="row-w button c-pointer" id="one" key={{i}}>{{data[i].code}}</td>
+  <tr class="button c-pointer" id="one" key={{i}}>
+    <td class="row-w">{{data[i].code}}</td>
     <td class="row-w right">{{data[i].close}}</td>
     <td class="row-w right">{{data[i].change}}</td>
     <td class="row-w right">{{data[i].volume}}</td>
