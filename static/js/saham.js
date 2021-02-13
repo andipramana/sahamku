@@ -3,7 +3,6 @@ url = "get_list_saham";
 fetch(url)
   .then((response) => response.json())
   .then((listSaham) => {
-    console.log("listSaham", listSaham);
     setListData(listSaham);
 
     $(".button").click(function () {
