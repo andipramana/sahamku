@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from services import saham_services
 from sources import saham_db
 
@@ -22,8 +22,12 @@ def kalkulator_():
 
 @app.route("/list_saham")
 def list_saham():
-    data = saham_services.getAllStock(saham_db.example, '.JK')
-    return render_template(list_saham.__name__ + ".html", data=data, data_index=len(data))
+    return render_template(list_saham.__name__ + ".html")
+
+
+@app.route("/get_list_saham")
+def get_list_saham():
+    return jsonify(saham_services.getAllStock(saham_db.example, '.JK'))
 
 
 if __name__ == '__main__':

@@ -1,7 +1,6 @@
 <!-- prettier-ignore -->
 {% extends "base.html" %}
 {% block header %}
-<script src={{ url_for('static', filename='js/saham.js') }}></script>
 <link rel="stylesheet" href={{ url_for('static', filename='css/modal.css') }}>
 {% endblock %}
 {% block title %}List Saham{% endblock %}
@@ -60,32 +59,24 @@
 </div>
 
 
-<table class="table">
+<table id="table">
   <tr>
     <td colspan="4">
       <h1 style="text-align: center">List Saham</h1>
     </td>
   </tr>
-  <tr>
+  <tr id="theader">
     <th class="row-w">Code</th>
     <th class="row-w">Last Price</th>
     <th class="row-w">Change</th>
     <th class="row-w">Volume</th>
   </tr>
 
-  {% for i in range(data_index) %}
-  <script>
-    list_saham.push(getData('{{data[i]|tojson}}'));
-  </script>
-
-  <tr class="button c-pointer" id="one" key={{i}}>
-    <td class="row-w">{{data[i].code}}</td>
-    <td class="row-w right">{{data[i].close}}</td>
-    <td class="row-w right">{{data[i].change}}</td>
-    <td class="row-w right">{{data[i].volume}}</td>
+  <tr>
+    <td colspan="4">
+      <p style="text-align: center;">Loading data...</p>
+    </td>
   </tr>
-
-  {% endfor %}
 
   <tr>
     <td><br /></td>
@@ -102,7 +93,7 @@
 </table>
 
 {% block footer %}
-<script src={{ url_for('static', filename='js/modal.js') }}></script>
+<script src={{ url_for('static', filename='js/saham.js') }}></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
   integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" 
   crossorigin="anonymous"></script>
