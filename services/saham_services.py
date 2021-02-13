@@ -24,8 +24,6 @@ def getStock(code, country_id):
         symbol_data = my_share.get_historical(share.PERIOD_TYPE_DAY, 3,
                                               share.FREQUENCY_TYPE_DAY, 1)
 
-        print(symbol_data)
-
         if symbol_data['volume'][1] != 0:
             index, prev = 1, 0
         else:
