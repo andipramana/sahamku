@@ -40,24 +40,26 @@ function calculate() {
 
 function beli() {
   fee = 0.0019;
-  totalLabel.innerHTML = "Total biaya";
-  jumlahLot.setAttribute("readonly", "true");
-  rowBiaya.style.display = "contents";
-  rowModal.style.display = "contents";
-  lotLabel.innerHTML = "Jumlah lot bisa dibeli";
-  labelKalkulator.innerHTML = "Beli Saham";
+
+  $("#totalLabel").html("Total biaya");
+  $("#jumlahLot").attr("readonly", "");
+  $("#rowBiaya").css("display", "contents");
+  $("#rowModal").css("display", "contents");
+  $("#lotLabel").html("Jumlah lot bisa dibeli");
+  $("#labelKalkulator").html("Beli Saham");
 
   calculate();
 }
 
 function jual() {
   fee = 0.0029;
-  totalLabel.innerHTML = "Total penjualan";
-  jumlahLot.removeAttribute("readonly");
-  rowBiaya.style.display = "none";
-  rowModal.style.display = "none";
-  lotLabel.innerHTML = "Masukan jumlah lot";
-  labelKalkulator.innerHTML = "Jual Saham";
+
+  $("#totalLabel").html("Total penjualan");
+  $("#jumlahLot").removeAttr("readonly");
+  $("#rowBiaya").css("display", "none");
+  $("#rowModal").css("display", "none");
+  $("#lotLabel").html("Masukan jumlah lot");
+  $("#labelKalkulator").html("Jual Saham");
 
   calculate();
 }
