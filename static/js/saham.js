@@ -1,5 +1,7 @@
 url = "get_list_saham";
 
+modalType = ["one", "two", "six", "seven", "five"];
+
 fetch(url)
   .then((response) => response.json())
   .then((listSaham) => {
@@ -32,54 +34,53 @@ function setModalData(saham) {
 }
 
 function setListData(listSaham) {
+  // prettier-ignore
   var theader =
-    "<tr>" +
-    '<td colspan="4">' +
-    '<h1 style="text-align: center">List Saham</h1>' +
-    "</td>" +
-    "</tr>" +
-    '<tr id="theader">' +
-    '<th class="row-w">Code</th>' +
-    '<th class="row-w">Last Price</th>' +
-    '<th class="row-w">Change</th>' +
-    '<th class="row-w">Volume</th>' +
-    "</tr>";
+    `<tr>
+      <td colspan=4>
+      <h1 style="text-align: center;">List Saham</h1>
+      </td>
+      </tr>
+    <tr id="theader">
+      <th class="row-w">Code</th>
+      <th class="row-w">Last Price</th>
+      <th class="row-w">Change</th>
+      <th class="row-w">Volume</th>
+    </tr>`;
+
+  // prettier-ignore
   var tfooter =
-    "<tr>" +
-    "<td><br /></td>" +
-    "</tr>" +
-    "<tr>" +
-    "<td><br /></td>" +
-    "</tr>" +
-    "<tr>" +
-    '<td colspan="4">' +
-    '<a href="/kalkulator" class="btn btn--stripe btn--radius">Kalkulator</a>' +
-    "</td>" +
-    "</tr>";
+    `<tr>
+      <td><br /></td>
+    </tr>
+    <tr>
+      <td><br /></td>
+    </tr>
+    <tr>
+      <td colspan=4>
+      <a href="/kalkulator" class="btn btn--stripe btn--radius">Kalkulator</a>
+      </td>
+    </tr>`;
 
   var tableData = theader;
 
   for (let i = 0; i < listSaham.length; i++) {
+    // prettier-ignore
     tableData +=
-      '<tr class="button c-pointer" id="one" key=' +
-      i +
-      ">" +
-      '<td class="row-w">' +
-      listSaham[i].code +
-      "</td>" +
-      '<td class="row-w right">' +
-      listSaham[i].close +
-      "</td>" +
-      '<td class="row-w right">' +
-      listSaham[i].change +
-      "</td>" +
-      '<td class="row-w right">' +
-      listSaham[i].volume +
-      "</td>" +
-      "</tr>";
+      `<tr class="button c-pointer" id=${modalType[i]} key=${i}>
+        <td class="row-w">${listSaham[i].code}</td>
+        <td class="row-w right">${listSaham[i].close}</td>
+        <td class="row-w right">${listSaham[i].change}</td>
+        <td class="row-w right">${listSaham[i].volume}</td>
+      </tr>
+      `;
   }
 
   tableData += tfooter;
 
   $("#table").html(tableData);
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
 }
