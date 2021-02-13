@@ -103,4 +103,8 @@
   </tr>
 </table>
 
+{% block footer %}
+<script src={{ url_for('static', filename='js/calculate.js') }}></script>
+{% endblock %}
+
 {% endblock %}

@@ -40,8 +40,6 @@ def getStock(code, country_id):
             saham.change = round((symbol_data['close'][index] - symbol_data['close'][prev])
                                  / symbol_data['close'][prev] * 100, 2)
 
-            print(saham.__dict__)
-
         except Exception as e:
             print(e)
 

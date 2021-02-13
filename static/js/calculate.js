@@ -1,14 +1,8 @@
 var modal = document.getElementById("modal");
 var hargaSaham = document.getElementById("hargaSaham");
-var jumlahLot = document.getElementById("jumlahLot");
 var biaya = document.getElementById("biaya");
 var pajak = document.getElementById("pajak");
 var totalBiaya = document.getElementById("totalBiaya");
-var totalLabel = document.getElementById("totalLabel");
-var lotLabel = document.getElementById("lotLabel");
-var rowBiaya = document.getElementById("rowBiaya");
-var rowModal = document.getElementById("rowModal");
-var labelKalkulator = document.getElementById("labelKalkulator");
 var fee = 0;
 
 if (rowModal) {
@@ -43,8 +37,8 @@ function beli() {
 
   $("#totalLabel").html("Total biaya");
   $("#jumlahLot").attr("readonly", "");
-  $("#rowBiaya").css("display", "contents");
-  $("#rowModal").css("display", "contents");
+  $("#rowBiaya").show();
+  $("#rowModal").show();
   $("#lotLabel").html("Jumlah lot bisa dibeli");
   $("#labelKalkulator").html("Beli Saham");
 
@@ -56,8 +50,8 @@ function jual() {
 
   $("#totalLabel").html("Total penjualan");
   $("#jumlahLot").removeAttr("readonly");
-  $("#rowBiaya").css("display", "none");
-  $("#rowModal").css("display", "none");
+  $("#rowBiaya").hide();
+  $("#rowModal").hide();
   $("#lotLabel").html("Masukan jumlah lot");
   $("#labelKalkulator").html("Jual Saham");
 
