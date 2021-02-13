@@ -21,18 +21,26 @@ def getStock(code, country_id):
     my_share = share.Share(code + country_id)
 
     try:
-        symbol_data = my_share.get_historical(share.PERIOD_TYPE_DAY, 1,
+        symbol_data = my_share.get_historical(share.PERIOD_TYPE_DAY, 3,
                                               share.FREQUENCY_TYPE_DAY, 1)
+
+        print(symbol_data)
+
+        if symbol_data['volume'][1] != 0:
+            index, prev = 1, 0
+        else:
+            index = prev = 0
 
         try:
             saham.code = code
-            saham.previous_close = symbol_data['close'][0]
-            saham.open_price = symbol_data['open'][1]
-            saham.high = symbol_data['high'][1]
-            saham.low = symbol_data['low'][1]
-            saham.close = symbol_data['close'][1]
-            saham.volume = symbol_data['volume'][1]
-            saham.change = round((symbol_data['close'][1] - symbol_data['close'][0]) / symbol_data['close'][0] * 100, 2)
+            saham.previous_close = symbol_data['close'][prev]
+            saham.open_price = symbol_data['open'][index]
+            saham.high = symbol_data['high'][index]
+            saham.low = symbol_data['low'][index]
+            saham.close = symbol_data['close'][index]
+            saham.volume = symbol_data['volume'][index]
+            saham.change = round((symbol_data['close'][index] - symbol_data['close'][prev])
+                                 / symbol_data['close'][prev] * 100, 2)
 
             print(saham.__dict__)
 
